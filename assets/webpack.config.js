@@ -54,7 +54,12 @@ module.exports = {
 							},
 						},
 					},
-					'sass-loader',
+					{
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+							 },
+            },
 				],
 			},
 			{
