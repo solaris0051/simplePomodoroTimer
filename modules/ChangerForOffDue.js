@@ -5,6 +5,5 @@ export const ChangerForOffDue = (dt, id, btn0, btn1, btn2) => {
 		btn1.disabled = false;
 		btn2.disabled = false;
 		alert("It\'s about time you took a rest \'enough\', innit?");
-		waiting = setTimeout(location.reload(), 0);
-	}, (dt * 60 * 1000) + 2000);
+	}, (dt * 60 * 1000) + 200);
 }

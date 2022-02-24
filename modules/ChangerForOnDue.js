@@ -5,5 +5,5 @@ export const ChangerForOnDue = (dt, id, btn0, btn1, btn2) => {
 		btn1.disabled = false;
 		btn2.disabled = false;
 		alert("It\'s about time you finished the due time, innit?");
-	}, (dt * 60 * 1000) + 2000)
+	}, (dt * 60 * 1000) + 200)
 }
