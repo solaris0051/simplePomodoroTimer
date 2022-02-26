@@ -2,7 +2,7 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 	btn0.disabled = true;
 	btn1.disabled = true;
 	btn2.disabled = true;
-	let endTime = new Date().getTime() + dt * 60 * 1001;
+	let endTime = new Date().getTime() + dt * 60 * 1000;
 	let expressTimer = setInterval(() => {
 		let curTime = new Date().getTime();
 		let due = endTime - curTime;
