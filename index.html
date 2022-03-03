@@ -5,48 +5,51 @@
  <head>
  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SimplePomodoroTimer">
+ 	<meta name="description" content="SimplePomodoroTimer">
  	<script type="module" src="assets/dist/main.js"></script>
-  <script type="module" src="top.js"></script>
+ 	<script type="module" src="top.js"></script>
  	<title>SimplePomodoroTimer</title>
  	<link rel="icon" type="image/x-icon" href="favicon.ico">
  	<link rel="stylesheet" href="assets/dist/style.css" media="all">
  </head>
 
  <body>
+
  	<div class="container p-3 bg-success text-white text-center">
- 		<h3 class="h3">SimplePomodoroTimer</h1>
+ 		<header>
+ 			<h3 class="h3">SimplePomodoroTimer</h1>
+ 		</header>
  	</div>
  	<div id="div1" class="container p-3 bg-danger bg-opacity-75 text-white text-center">
  		<div class="container p-3">
- 			<h3 id="hd1" class="h3">Select one of the timers "ON DUTY".</h2>
- 			<div id="div2" class="btn-group btn-group-lg">
- 				<button id="btn25" class="btn btn-primary">&nbsp25mins.</button>
- 				<button id="btn30" class="btn btn-primary">&nbsp30mins.</button>
- 				<button id="btn35" class="btn btn-primary">&nbsp35mins.</button>
+ 			<h4 id="hd1" class="h4">Select one of the timers "ON DUTY".</h4>
+ 				<div id="div2" class="btn-group btn-group-lg">
+ 					<button id="btn25" class="btn btn-primary">&nbsp25mins.</button>
+ 					<button id="btn30" class="btn btn-primary">&nbsp30mins.</button>
+ 					<button id="btn35" class="btn btn-primary">&nbsp35mins.</button>
+ 				</div>
+ 		</div>
+ 		<div class="container p-3">
+ 			<h4 id="hd2" class="h4">Select one of the timers for "TIME-OFF".</h4>
+ 			<div class="btn-group btn-group-lg">
+ 				<button id="btn5" class="btn btn-warning">&nbsp05mins.</button>
+ 				<button id="btn6" class="btn btn-warning">&nbsp06mins.</button>
+ 				<button id="btn7" class="btn btn-warning">&nbsp07mins.</button>
  			</div>
  		</div>
-    <div class="container p-3">
-    	<h3 id="hd2" class="h3">Select one of the timers for "TIME-OFF".</h2>
-    	<div class="btn-group btn-group-lg">
-    		<button id="btn5" class="btn btn-warning">&nbsp05mins.</button>
-    		<button id="btn6" class="btn btn-warning">&nbsp06mins.</button>
-    		<button id="btn7" class="btn btn-warning">&nbsp07mins.</button>
-    	</div>
-    </div>
-    <div class="container p-3">
-      <h1 class="display-1">
-        <span id="mins"></span><span id="secs"></span>
-      </h1>
-    </div>
  		<div class="container p-3">
- 			<h3 class="h3">Any problem? Relax, then Reset.</h2>
+ 			<h1 class="display-1">
+ 				<span id="mins"></span><span id="secs"></span>
+ 			</h1>
+ 		</div>
+ 		<div class="container p-3">
+ 			<h4 class="h4">Any problem? Relax, then Reset.</h4>
  			<button id="btn_RST" class="btn btn-info btn-lg">Reset.</button>
  		</div>
  	</div>
  	<div class="container p-1 bg-success text-white text-center">
  		<footer>
- 			<h3 class="h3">Since Feb, 2022 (C) Y.K</h3>
+ 			<h6 class="h6">Since Feb, 2022 (C) Y.K</h6>
  		</footer>
  	</div>
  </body>
