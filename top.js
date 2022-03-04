@@ -5,8 +5,8 @@ const btn_rst = document.getElementById('btn_RST').addEventListener('click', () 
 
 //common constants
 
-const hd1Text1 = `Concentrate the mind <br> on the present moment !!!!`;
-const hd2Text2 = `Wish you have a relaxing time <br> just for a short while.``;
+const hd1Text1 = 'Concentrate the mind <br> on the present moment !!!!';
+const hd2Text2 = 'Wish you have a relaxing time <br> just for a short while.';
 const className1 = 'container p-3 bg-success text-white text-center';
 const className2 = 'container p-3 bg-danger text-white text-center';
 const btn_25 = document.getElementById('btn25');
@@ -28,10 +28,10 @@ btn_07.disabled = true;
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(25, btn_25, btn_30, btn_35);
+		module.CountDownTimer(0.15, btn_25, btn_30, btn_35);
 		document.getElementById('hd1').innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
-			module.ChangerForOnDue(25, id1, btn_05, btn_06, btn_07, className1);
+			module.ChangerForOnDue(0.15, id1, btn_05, btn_06, btn_07, className1);
 		})
 	})
 })
@@ -62,10 +62,10 @@ btn_35.addEventListener('click', () => {
 //rest norm_off_duty(5mins.)
 btn_05.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(5, btn_05, btn_06, btn_07);
+		module.CountDownTimer(0.15, btn_05, btn_06, btn_07);
 		document.getElementById('hd2').innerHTML = hd2Text2;
 		import(modulePath2).then((module) => {
-			module.ChangerForOffDue(5, id1, btn_25, btn_30, btn_35, className2);
+			module.ChangerForOffDue(0.15, id1, btn_25, btn_30, btn_35, className2);
 		})
 	})
 })
