@@ -4,8 +4,9 @@ const btn_rst = document.getElementById('btn_RST').addEventListener('click', () 
 });
 
 //common constants
-const hd1Text1 = 'Concentrate the mind \<br> on the present moment \!\!\!\!';
-const hd2Text2 = 'Wish you have a relaxing time \<br> just for a short while.';
+
+const hd1Text1 = `Concentrate the mind <br> on the present moment !!!!`;
+const hd2Text2 = `Wish you have a relaxing time <br> just for a short while.``;
 const className1 = 'container p-3 bg-success text-white text-center';
 const className2 = 'container p-3 bg-danger text-white text-center';
 const btn_25 = document.getElementById('btn25');
