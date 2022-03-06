@@ -4,21 +4,20 @@ const btn_rst = document.getElementById('btn_RST').addEventListener('click', () 
 });
 
 //common constants
-
 const hd1Text1 = 'Concentrate the mind <br> on the present moment !!!!';
 const hd2Text2 = 'Wish you have a relaxing time <br> just for a short while.';
-const className1 = "container p-3 bg-success bg-opacity-100 text-white text-center"';
-const className2 = "container p-3 bg-danger bg-opacity-75 text-white text-center";
+const msg1 = 'It\'s about time you finished the due time, innit?';
+const msg2 = 'It\'s about time you took a rest enough, innit?';
 const btn_25 = document.getElementById('btn25');
 const btn_30 = document.getElementById('btn30');
 const btn_35 = document.getElementById('btn35');
 const btn_05 = document.getElementById('btn5');
 const btn_06 = document.getElementById('btn6');
 const btn_07 = document.getElementById('btn7');
-const id1 = 'div1';
 const modulePath0 = './modules/CountDownTimer.js';
-const modulePath1 = './modules/ChangerForOnDue.js';
-const modulePath2 = './modules/ChangerForOffDue.js'
+const modulePath1 = './modules/ChangerAfterDue.js';
+const modulePath2 = './modules/ChangerAfterTimeoff.js';
+const div_01 = document.getElementById('div1');
 
 //initial values (,meaning following default values are needed to be initialized here.)
 btn_05.disabled = true;
@@ -28,10 +27,10 @@ btn_07.disabled = true;
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(0.15, btn_25, btn_30, btn_35);
+		module.CountDownTimer(25, btn_25, btn_30, btn_35);
 		document.getElementById('hd1').innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
-			module.ChangerForOnDue(0.15, id1, btn_05, btn_06, btn_07, className1);
+			module.ChangerAfterDue(25, div_01, btn_05, btn_06, btn_07, msg1);
 		})
 	})
 })
@@ -42,7 +41,7 @@ btn_30.addEventListener('click', () => {
 		module.CountDownTimer(30, btn_25, btn_30, btn_35);
 		document.getElementById('hd1').innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
-			module.ChangerForOnDue(30, id1, btn_05, btn_06, btn_07, className1);
+			module.ChangerAfterDue(30, div_01, btn_05, btn_06, btn_07, msg1);
 		})
 	})
 })
@@ -53,7 +52,7 @@ btn_35.addEventListener('click', () => {
 		module.CountDownTimer(35, btn_25, btn_30, btn_35);
 		document.getElementById('hd1').innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
-			module.ChangerForOnDue(35, id1, btn_05, btn_06, btn_07, className1);
+			module.ChangerAfterDue(35, div_01, btn_05, btn_06, btn_07, msg1);
 		})
 	})
 })
@@ -62,10 +61,10 @@ btn_35.addEventListener('click', () => {
 //rest norm_off_duty(5mins.)
 btn_05.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(0.15, btn_05, btn_06, btn_07);
+		module.CountDownTimer(5, btn_05, btn_06, btn_07);
 		document.getElementById('hd2').innerHTML = hd2Text2;
 		import(modulePath2).then((module) => {
-			module.ChangerForOffDue(0.15, id1, btn_25, btn_30, btn_35, className2);
+			module.ChangerAfterTimeoff(5, div_01, btn_25, btn_30, btn_35, msg2);
 		})
 	})
 })
@@ -76,7 +75,7 @@ btn_06.addEventListener('click', () => {
 		module.CountDownTimer(6, btn_05, btn_06, btn_07);
 		document.getElementById('hd2').innerHTML = hd2Text2;
 		import(modulePath2).then((module) => {
-			module.ChangerForOffDue(6, id1, btn_25, btn_30, btn_35, classname2);
+			module.ChangerAfterTimeoff(6, div_01, btn_25, btn_30, btn_35, msg2);
 		})
 	})
 })
@@ -87,7 +86,7 @@ btn_07.addEventListener('click', () => {
 		module.CountDownTimer(7, btn_05, btn_06, btn_07);
 		document.getElementById('hd2').innerHTML = hd2Text2;
 		import(modulePath2).then((module) => {
-			module.ChangerForOffDue(7, id1, btn_25, btn_30, btn_35, classname2);
+			module.ChangerAfterTimeoff(7, div_01, btn_25, btn_30, btn_35, msg2);
 		})
 	})
 })
