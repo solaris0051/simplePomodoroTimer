@@ -4,7 +4,7 @@
   "main": "webpack.config.js",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "NODE_ENV=production webpack --mode production",
     "dev": "webpack --mode development",
     "watch": "webpack --mode development --watch",
     "start": "webpack serve --mode development"
@@ -33,5 +33,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "optionalDependencies": {
+    "win-node-env": "^0.6.1"
+  }
 }

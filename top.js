@@ -4,10 +4,10 @@ const btn_rst = document.getElementById('btn_RST').addEventListener('click', () 
 });
 
 //common constants
-const hd1Text1 = 'Concentrate the mind <br> on the present moment !!!!';
-const hd2Text2 = 'Wish you have a relaxing time <br> just for a short while.';
-const msg1 = 'It\'s about time you finished the due time, innit?';
-const msg2 = 'It\'s about time you took a rest enough, innit?';
+const hd1Text1 = "Concentrate the mind <br> on the present moment !!!!";
+const hd2Text2 = "Wish you have a relaxing time <br> just for a short while.";
+const msg1 = "It's about time you finished the due time, innit?";
+const msg2 = "It's about time you took a rest enough, innit?";
 const btn_25 = document.getElementById('btn25');
 const btn_30 = document.getElementById('btn30');
 const btn_35 = document.getElementById('btn35');
