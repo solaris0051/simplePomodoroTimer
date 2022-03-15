@@ -4,6 +4,7 @@ export const ChangerAfterTimeoff = (dt, id, btn0, btn1, btn2, msg) => {
 		btn1.disabled = false;
 		btn2.disabled = false;
 		console.log(dt);
+		navigator.vibrate([1000, 500, 900, 400, 800, 300, 1000, 500, 900, 400, 800, 300]);
 		alert(msg);
 		location.reload();
 		id.className = 'container p-3 bg-danger bg-opacity-75 text-white text-center';
