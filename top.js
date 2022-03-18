@@ -27,11 +27,11 @@ btn_05.disabled = true;
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(0.1, btn_25, btn_30, btn_35);
+		module.CountDownTimer(25, btn_25, btn_30, btn_35);
 		hd_1.innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
-			module.ChangerAfterDue(0.1, div_1, btn_05, msg1);
+			module.ChangerAfterDue(25, div_1, btn_05, msg1);
 		})
 	})
 })
@@ -64,10 +64,10 @@ btn_35.addEventListener('click', () => {
 //norm_off_duty(5mins.)
 btn_05.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(0.1, btn_05, btn_05, btn_05);
+		module.CountDownTimer(25, btn_05, btn_05, btn_05);
 	  hd_2.innerHTML = hd2Text2;
 		import(modulePath2).then((module) => {
-			module.ChangerAfterTimeoff(0.1, div_1, btn_25, btn_30, btn_35, msg2);
+			module.ChangerAfterTimeoff(25, div_1, btn_25, btn_30, btn_35, msg2);
 		})
 	})
 })
