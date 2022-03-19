@@ -64,10 +64,10 @@ btn_35.addEventListener('click', () => {
 //norm_off_duty(5mins.)
 btn_05.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(25, btn_05, btn_05, btn_05);
+		module.CountDownTimer(5, btn_05, btn_05, btn_05);
 	  hd_2.innerHTML = hd2Text2;
 		import(modulePath2).then((module) => {
-			module.ChangerAfterTimeoff(25, div_1, btn_25, btn_30, btn_35, msg2);
+			module.ChangerAfterTimeoff(5, div_1, btn_25, btn_30, btn_35, msg2);
 		})
 	})
 })
