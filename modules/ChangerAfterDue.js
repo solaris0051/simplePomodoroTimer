@@ -1,4 +1,4 @@
-export const ChangerAfterDue = (dt, id, btn0, msg) => {
+export const ChangerAfterDue = (dt, id, btn0) => {
 	const duechanger = setTimeout(() => {
 		btn0.disabled = false;
 		id.className = 'container p-3 bg-success text-white text-center';

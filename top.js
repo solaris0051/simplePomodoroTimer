@@ -6,8 +6,6 @@ const btn_rst = document.getElementById('btn_RST').addEventListener('click', () 
 //common constants
 const hd1Text1 = "Concentrate the mind <br> on the present moment !!!!";
 const hd2Text2 = "Wish you a relaxing time <br> just for a short while.";
-const msg1 = "It's about time you finished the due time, innit?";
-const msg2 = "It's about time you took a rest enough, innit?";
 const btn_25 = document.getElementById('btn25');
 const btn_30 = document.getElementById('btn30');
 const btn_35 = document.getElementById('btn35');
@@ -20,9 +18,8 @@ const div_2 = document.getElementById('div2');
 const hd_1 = document.getElementById('hd1');
 const hd_2 = document.getElementById('hd2');
 
-//initial values (,meaning following default values are needed to be initialized here.)
+//initial value (,meaning following default value is needed to be initialized here.)
 btn_05.disabled = true;
-
 
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
@@ -31,7 +28,7 @@ btn_25.addEventListener('click', () => {
 		hd_1.innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
-			module.ChangerAfterDue(25, div_1, btn_05, msg1);
+			module.ChangerAfterDue(25, div_1, btn_05);
 		})
 	})
 })
@@ -43,7 +40,7 @@ btn_30.addEventListener('click', () => {
 		hd_1.innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
-			module.ChangerAfterDue(30, div_1, btn_05, msg1);
+			module.ChangerAfterDue(30, div_1, btn_05);
 		})
 	})
 })
@@ -55,7 +52,7 @@ btn_35.addEventListener('click', () => {
 		hd_1.innerHTML = hd1Text1;
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
-			module.ChangerAfterDue(35, div_1, btn_05, msg1);
+			module.ChangerAfterDue(35, div_1, btn_05);
 		})
 	})
 })
@@ -67,7 +64,7 @@ btn_05.addEventListener('click', () => {
 		module.CountDownTimer(5, btn_05, btn_05, btn_05);
 	  hd_2.innerHTML = hd2Text2;
 		import(modulePath2).then((module) => {
-			module.ChangerAfterTimeoff(5, div_1, btn_25, btn_30, btn_35, msg2);
+			module.ChangerAfterTimeoff(5);
 		})
 	})
 })
