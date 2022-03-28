@@ -9,7 +9,6 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 		if (due >= 0) {
 			let mins = Math.floor((due % (60 * 60 * 1000)) / (60 * 1000));
 			let secs = Math.floor((due % (60 * 1000)) / 1000);
-			console.log(endTime, expressTimer, curTime, due, mins, secs);
 			document.getElementById('mins').innerHTML = ('0' + mins).slice(-2) + '<span>:</span>';
 			document.getElementById('secs').innerHTML = ('0' + secs).slice(-2);
 		} else {

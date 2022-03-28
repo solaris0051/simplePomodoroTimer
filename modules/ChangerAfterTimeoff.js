@@ -1,11 +1,8 @@
-export const ChangerAfterTimeoff = (dt, id, btn0, btn1, btn2, msg) => {
+export const ChangerAfterTimeoff = (dt) => {
 	const offchanger = setTimeout(() => {
-		btn0.disabled = false;
-		btn1.disabled = false;
-		btn2.disabled = false;
-		console.log(dt);
-		alert(msg);
-		location.reload();
-		id.className = 'container p-3 bg-danger bg-opacity-75 text-white text-center';
+		navigator.vibrate([1000, 500, 900, 400, 800, 300, 1000, 500, 900, 400, 800, 300]);
 	}, dt * 60 * 1000);
+	const reloader = setTimeout(() => {
+		location.reload();
+	}, dt * 60 * 1000 + (1000 + 500 + 900 + 400 + 800 + 300 + 1000 + 500 + 900 + 400 + 800 + 300 + 500));
 }

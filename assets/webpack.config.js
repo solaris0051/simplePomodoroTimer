@@ -23,8 +23,7 @@ module.exports = {
 	},
 
 	module: {
-		rules: [
-			{
+		rules: [{
 				test: /\.(scss|sass|css)$/i,
 				use: [
 					MiniCssExtractPlugin.loader,
@@ -39,27 +38,22 @@ module.exports = {
 									return false;
 								},
 							},
-              sourceMap: true,
 							importLoaders: 2,
 						},
 					},
 					{
 						loader: "postcss-loader",
 						options: {
-              sourceMap: true,
 							postcssOptions: {
-                plugins: [
-                  "autoprefixer"
-                ],
+								plugins: [
+									[
+										"postcss-preset-env",
+									],
+								],
 							},
 						},
 					},
-					{
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-							 },
-            },
+					'sass-loader',
 				],
 			},
 			{
