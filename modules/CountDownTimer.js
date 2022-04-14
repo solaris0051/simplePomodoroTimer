@@ -11,8 +11,10 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 			let secs = Math.floor((due % (60 * 1000)) / 1000);
 			document.getElementById('mins').innerHTML = ('0' + mins).slice(-2) + '<span>:</span>';
 			document.getElementById('secs').innerHTML = ('0' + secs).slice(-2);
+			console.log(endTime, expressTimer, dt, curTime, due, mins, secs);
 		} else {
 			clearInterval(expressTimer);
+			console.log(endTime, expressTimer, dt, curTime, due, mins, secs);
 		};
 	}, 1000);
 }
