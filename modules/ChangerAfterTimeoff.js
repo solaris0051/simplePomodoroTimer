@@ -1,4 +1,4 @@
-export const ChangerAfterTimeoff = (dt) => {
+export const ChangerAfterTimeoff = dt => {
 	const offchanger = setTimeout(() => {
 		navigator.vibrate([1000, 500, 900, 400, 800, 300, 1000, 500, 900, 400, 800, 300]);
 	}, dt * 60 * 1000);

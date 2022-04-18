@@ -10,6 +10,7 @@ const btn_25 = document.getElementById('btn25');
 const btn_30 = document.getElementById('btn30');
 const btn_35 = document.getElementById('btn35');
 const btn_05 = document.getElementById('btn5');
+const modulePathX = './modules/TimeWorker.js';
 const modulePath0 = './modules/CountDownTimer.js';
 const modulePath1 = './modules/ChangerAfterDue.js';
 const modulePath2 = './modules/ChangerAfterTimeoff.js';

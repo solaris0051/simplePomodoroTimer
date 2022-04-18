@@ -16,7 +16,9 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 	// 	};
 	// }, 1000);
 	if (window.Worker) {
-		let TimeWorker = new Worker('TimeWorker.js');
+		const TimeWorker = new Worker('./TimeWorker.js', {
+			type: 'module'
+		});
 		TimeWorker.onmessage = function(event) {
 			document.getElementById('mins_secs').innerHTML = event.data;
 		}
