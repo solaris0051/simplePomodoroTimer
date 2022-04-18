@@ -22,18 +22,37 @@ const hd_2 = document.getElementById('hd2');
 //initial value (,meaning following default value is needed to be initialized here.)
 btn_05.disabled = true;
 
+// const TimeWorker = dt => {
+// 	let endTime = new Date().getTime() + dt * 60 * 1000;
+// 	let expressTimer = setInterval(() => {
+// 		let curTime = new Date().getTime();
+// 		let due = endTime - curTime;
+// 		if (due >= 0) {
+// 			let raw_mins = Math.floor((due % (60 * 60 * 1000)) / (60 * 1000));
+// 			let raw_secs = Math.floor((due % (60 * 1000)) / 1000);
+// 			let deco_mins = ('0' + mins).slice(-2);
+// 			let deco_secs = ('0' + secs).slice(-2);
+// 			postMessage(deco_mins + ':' + deco_secs);
+// 		} else {
+// 			clearInterval(expressTimer);
+// 		};
+// 	}, 1000);
+// }
+
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
-	import(modulePath0).then((module) => {
-		module.CountDownTimer(25, btn_25, btn_30, btn_35);
-		hd_1.innerHTML = hd1Text1;
-		import(modulePath1).then((module) => {
-			div_2.removeAttribute('hidden');
-			module.ChangerAfterDue(25, div_1, btn_05);
+	import(modulePathX).then((module) => {
+		module.TimeWorker(25);
+		import(modulePath0).then((module) => {
+			module.CountDownTimer(25, btn_25, btn_30, btn_35);
+			hd_1.innerHTML = hd1Text1;
+			import(modulePath1).then((module) => {
+				div_2.removeAttribute('hidden');
+				module.ChangerAfterDue(25, div_1, btn_05);
+			})
 		})
 	})
 })
-
 //option #1: for those who'd prefer "30mins" to the others.
 btn_30.addEventListener('click', () => {
 	import(modulePath0).then((module) => {

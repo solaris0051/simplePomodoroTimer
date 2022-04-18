@@ -1,4 +1,4 @@
-export const TimeWorker = dt => {
+export const TimeWorker.onchange = dt => {
 	let endTime = new Date().getTime() + dt * 60 * 1000;
 	let expressTimer = setInterval(() => {
 		let curTime = new Date().getTime();

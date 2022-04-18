@@ -19,7 +19,7 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 		const TimeWorker = new Worker('./TimeWorker.js', {
 			type: 'module'
 		});
-		TimeWorker.onmessage = function(event) {
+		TimeWorker.onchange = function(event) {
 			document.getElementById('mins_secs').innerHTML = event.data;
 		}
 	} else {
