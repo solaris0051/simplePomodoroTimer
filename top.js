@@ -10,7 +10,7 @@ const btn_25 = document.getElementById('btn25');
 const btn_30 = document.getElementById('btn30');
 const btn_35 = document.getElementById('btn35');
 const btn_05 = document.getElementById('btn5');
-const modulePathX = './modules/TimeWorker.js';
+const modulePathX = './modules/TimeCalc.js';
 const modulePath0 = './modules/CountDownTimer.js';
 const modulePath1 = './modules/ChangerAfterDue.js';
 const modulePath2 = './modules/ChangerAfterTimeoff.js';
@@ -41,11 +41,11 @@ btn_05.disabled = true;
 
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
-	import(modulePathX).then((module) => {
-		module.TimeWorker(25);
-		import(modulePath0).then((module) => {
-			module.CountDownTimer(25, btn_25, btn_30, btn_35);
-			hd_1.innerHTML = hd1Text1;
+	import(modulePath0).then((module) => {
+		module.CountDownTimer(25, btn_25, btn_30, btn_35);
+		hd_1.innerHTML = hd1Text1;
+		import(modulePathX).then((module) => {
+			module.TimeCalc(25);
 			import(modulePath1).then((module) => {
 				div_2.removeAttribute('hidden');
 				module.ChangerAfterDue(25, div_1, btn_05);
@@ -53,6 +53,7 @@ btn_25.addEventListener('click', () => {
 		})
 	})
 })
+
 //option #1: for those who'd prefer "30mins" to the others.
 btn_30.addEventListener('click', () => {
 	import(modulePath0).then((module) => {

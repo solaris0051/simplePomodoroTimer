@@ -15,14 +15,20 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 	// 		clearInterval(expressTimer);
 	// 	};
 	// }, 1000);
+	console.log('CDTt1');
 	if (window.Worker) {
-		const TimeWorker = new Worker('./TimeWorker.js', {
+		const TimeWorker = new Worker('./TimeCalc.js', {
 			type: 'module'
 		});
-		TimeWorker.onchange = function(event) {
+		console.log('CDTt2');
+		console.log(TimeWorker);
+		TimeWorker.onmessage = function(event) {
+			console.log('CDTt3');
 			document.getElementById('mins_secs').innerHTML = event.data;
+			console.log('CDTt4');
 		}
 	} else {
 		document.getElementById('mins_secs').innerHTML = 'No Worker.';
+		console.log('CDTt5');
 	}
 }
