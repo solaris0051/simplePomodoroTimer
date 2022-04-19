@@ -17,11 +17,14 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 	// }, 1000);
 	console.log('CDTt1');
 	if (window.Worker) {
-		const TimeWorker = new Worker('./TimeCalc.js', {
-			type: 'module'
-		});
+		// mori
+		const TimeWorker = new Worker("./modules/TimeCalc.js");
 		console.log('CDTt2');
 		console.log(TimeWorker);
+
+		// mori
+		TimeWorker.postMessage(25);
+
 		TimeWorker.onmessage = function(event) {
 			console.log('CDTt3');
 			document.getElementById('mins_secs').innerHTML = event.data;

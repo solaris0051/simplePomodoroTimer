@@ -40,16 +40,27 @@ btn_05.disabled = true;
 // }
 
 //norm_on_duty(25mins.)
+// btn_25.addEventListener('click', () => {
+// 	import(modulePath0).then((module) => {
+// 		module.CountDownTimer(25, btn_25, btn_30, btn_35);
+// 		hd_1.innerHTML = hd1Text1;
+// 		import(modulePathX).then((module) => {
+// 			module.TimeCalc(25);
+// 			import(modulePath1).then((module) => {
+// 				div_2.removeAttribute('hidden');
+// 				module.ChangerAfterDue(25, div_1, btn_05);
+// 			})
+// 		})
+// 	})
+// })
+
 btn_25.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		module.CountDownTimer(25, btn_25, btn_30, btn_35);
 		hd_1.innerHTML = hd1Text1;
-		import(modulePathX).then((module) => {
-			module.TimeCalc(25);
-			import(modulePath1).then((module) => {
-				div_2.removeAttribute('hidden');
-				module.ChangerAfterDue(25, div_1, btn_05);
-			})
+		module.CountDownTimer(25, btn_25, btn_30, btn_35);
+		import(modulePath1).then((module) => {
+			div_2.removeAttribute('hidden');
+			module.ChangerAfterDue(25, div_1, btn_05);
 		})
 	})
 })
