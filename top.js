@@ -24,7 +24,7 @@ btn_05.disabled = true;
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		hd_1.textContent = hd1Text1;
+		hd_1.innerHtml = hd1Text1;
 		module.CountDownTimer(25, btn_25, btn_30, btn_35);
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
