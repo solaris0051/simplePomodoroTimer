@@ -24,7 +24,7 @@ btn_05.disabled = true;
 //norm_on_duty(25mins.)
 btn_25.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
-		hd_1.innerHTML = hd1Text1;
+		hd_1.textContent = hd1Text1;
 		module.CountDownTimer(25, btn_25, btn_30, btn_35);
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
@@ -37,7 +37,7 @@ btn_25.addEventListener('click', () => {
 btn_30.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
 		module.CountDownTimer(30, btn_25, btn_30, btn_35);
-		hd_1.innerHTML = hd1Text1;
+		hd_1.textContent = hd1Text1;
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
 			module.ChangerAfterDue(30, div_1, btn_05);
@@ -49,7 +49,7 @@ btn_30.addEventListener('click', () => {
 btn_35.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
 		module.CountDownTimer(35, btn_25, btn_30, btn_35);
-		hd_1.innerHTML = hd1Text1;
+		hd_1.textContent = hd1Text1;
 		import(modulePath1).then((module) => {
 			div_2.removeAttribute('hidden');
 			module.ChangerAfterDue(35, div_1, btn_05);
@@ -62,7 +62,7 @@ btn_35.addEventListener('click', () => {
 btn_05.addEventListener('click', () => {
 	import(modulePath0).then((module) => {
 		module.CountDownTimer(5, btn_05, btn_05, btn_05);
-	  hd_2.innerHTML = hd2Text2;
+	  hd_2.textContent = hd2Text2;
 		import(modulePath2).then((module) => {
 			module.ChangerAfterTimeoff(5);
 		})

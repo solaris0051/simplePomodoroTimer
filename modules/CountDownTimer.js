@@ -11,11 +11,11 @@ export const CountDownTimer = (dt, btn0, btn1, btn2) => {
 		TimeWorker.postMessage(dt);
 		TimeWorker.onmessage = function(event) {
 			console.log('CDTt3');
-			document.getElementById('mins_secs').innerHTML = event.data;
+			document.getElementById('mins_secs').textContent = event.data;
 			console.log('CDTt4');
 		}
 	} else {
-		document.getElementById('mins_secs').innerHTML = 'No Worker.';
+		document.getElementById('mins_secs').textContent = 'No Worker.';
 		console.log('CDTt5');
 	}
 }
