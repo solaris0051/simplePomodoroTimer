@@ -1,8 +1,11 @@
 export const ChangerAfterTimeoff = dt => {
-	const offchanger = setTimeout(() => {
-		navigator.vibrate([1000, 500, 1000, 500, 1000, 500, 1000, 500, 1000, 500, 1000, 500]);
+	const onDueNotifier0 = setTimeout(() => {
+		navigator.vibrate(10000);
 	}, dt * 60 * 1000);
-	const reloader = setTimeout(() => {
+	const onDueNotifier1 = setTimeout(() => {
+		alert(`Did you relax enough?`);
+	}, dt * 60 * 1000 + 2000);
+	const selfReloader = setTimeout(() => {
 		location.reload();
-	}, dt * 60 * 1000 + (1000, 500, 1000, 500, 1000, 500, 1000, 500, 1000, 500, 1000, 500) + 1000);
+	}, dt * 60 * 1000 + 15000);
 }
