@@ -14,6 +14,6 @@ onmessage = function(event) {
 			numTimer = setTimeout(perMinute, 1000)
 		} else {
 			clearTimeout(numTimer);
-		};
+		}
 	}, 1000);
 }
