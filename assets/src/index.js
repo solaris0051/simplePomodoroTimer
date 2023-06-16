@@ -26,9 +26,6 @@ const div = [
 ];
 const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 
-//initialize
-btn[3].disabled = true;
-
 //multiple_on_duty(25, 30, 55mins.)
 for (let i = 0; i < btn.length - 2; i++) {
     btn[i].addEventListener(
