@@ -1,5 +1,16 @@
 import "bootstrap/scss/bootstrap.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+            console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+        });
+    });
+}
+
 // common constants
 const due = [25, 30, 55, 5];
 const hdText = [
