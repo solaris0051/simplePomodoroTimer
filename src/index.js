@@ -37,56 +37,38 @@ const div = [
 ];
 const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 
-//multiple_on_duty(25, 30, 55mins.)
-for (let i = 0; i < btn.length - 2; i++) {
-    btn[i].addEventListener(
-        "click",
-        async () => {
-            import("./CountDownTimer.js")
-                .then(module => {
-                    module.CountDownTimer(due[i]);
-                    btnDisabler()
-                        .then(domVisualizer);
-                })
-                .then(
-                    import("./ChangerAfterDue.js")
-                        .then(module => {
-                            module.ChangerAfterDue(due[i], btn[3], div[0], className[1]);
-                        })
-                );
-        },
-        false
-    );
+// Event listener for buttons
+btn.forEach((button, index) => {
+    if (index < btn.length - 2) {
+        button.addEventListener("click", () => handleButtonClick(index), false);
+    } else if (index === btn.length - 2) {
+        button.addEventListener("click", handleSingleOffDutyClick, false);
+    } else {
+        button.addEventListener("click", handleResetClick, false);
+    }
+});
+
+async function handleButtonClick(index) {
+    const { CountDownTimer } = await import("./CountDownTimer.js");
+    CountDownTimer(due[index]);
+    await btnDisabler();
+    await domVisualizer();
+    const { ChangerAfterDue } = await import("./ChangerAfterDue.js");
+    ChangerAfterDue(due[index], btn[3], div[0], className[1]);
 }
 
-//single_off_duty(5mins.)
-btn[3].addEventListener(
-    "click",
-    async () => {
-        import("./CountDownTimer.js")
-            .then(module => {
-                module.CountDownTimer(due[3]);
-                btnDisabler();
-                hd[1].innerHTML = hdText[1];
-            })
-            .then(
-                import("./ChangerAfterTimeoff.js")
-                    .then(module => {
-                        module.ChangerAfterTimeoff(due[3]);
-                    })
-            );
-    },
-    false
-);
+async function handleSingleOffDutyClick() {
+    const { CountDownTimer } = await import("./CountDownTimer.js");
+    CountDownTimer(due[3]);
+    await btnDisabler();
+    hd[1].innerHTML = hdText[1];
+    const { ChangerAfterTimeoff } = await import("./ChangerAfterTimeoff.js");
+    ChangerAfterTimeoff(due[3]);
+}
 
-//Reset.
-btn[4].addEventListener(
-    "click",
-    async () => {
-        location.reload();
-    },
-    false
-);
+async function handleResetClick() {
+    location.reload();
+}
 
 //async functions commonly used above for each btn for duration, respectively.
 async function btnDisabler() {

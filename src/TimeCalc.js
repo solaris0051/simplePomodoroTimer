@@ -1,13 +1,17 @@
 addEventListener("message", event => {
   let due = event.data * 60;
-  let timerID0 = setInterval(() => {
+  const timerID = setInterval(() => {
     if (due >= 0) {
-      const mins = `${0}${Math.floor((due % (60 * 60)) / 60)}`.slice(-2);
-      const secs = `${0}${Math.floor(due % 60)}`.slice(-2);
-      postMessage(mins + `:` + secs);
-      due = --due;
+      const mins = formatTime(Math.floor((due % (60 * 60)) / 60));
+      const secs = formatTime(Math.floor(due % 60));
+      postMessage(`${mins}:${secs}`);
+      due--;
     } else {
-      clearInterval(timerID0);
+      clearInterval(timerID);
     }
   }, 1000);
 });
+
+function formatTime(time) {
+  return `0${time}`.slice(-2);
+}
