@@ -1,11 +1,11 @@
-addEventListener("message", event => {
-  let due = event.data * 60;
+addEventListener("message", (event) => {
+  const endTime = Date.now() + event.data * 60 * 1000;
   const timerID = setInterval(() => {
-    if (due >= 0) {
-      const mins = formatTime(Math.floor((due % (60 * 60)) / 60));
-      const secs = formatTime(Math.floor(due % 60));
+    const remainingTime = endTime - Date.now();
+    if (remainingTime >= 0) {
+      const mins = formatTime(Math.floor((remainingTime / 1000 / 60) % 60));
+      const secs = formatTime(Math.floor((remainingTime / 1000) % 60));
       postMessage(`${mins}:${secs}`);
-      due--;
     } else {
       clearInterval(timerID);
     }
