@@ -1,12 +1,12 @@
-export const CountDownTimer = cdt => {
+export const countDownTimer = (durationMinutes) => {
   if (window.Worker) {
-    const workerID0 = new Worker(new URL("./TimeCalc.js", import.meta.url));
-    workerID0.postMessage(cdt);
-    workerID0.addEventListener("message", event => {
-      const displayElement = document.getElementById("mins_secs");
-      displayElement.textContent = event.data;
+    const timerWorker = new Worker(new URL("./TimeCalc.js", import.meta.url));
+    timerWorker.postMessage(durationMinutes);
+    timerWorker.addEventListener("message", (event) => {
+      const timerDisplayElement = document.getElementById("mins_secs");
+      timerDisplayElement.textContent = event.data;
       if (event.data === "00:00") {
-        workerID0.terminate();
+        timerWorker.terminate();
       }
     });
   } else {

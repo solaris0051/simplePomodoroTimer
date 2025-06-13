@@ -11,87 +11,86 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// common constants
-const due = [25, 30, 55, 5];
-const hdText = [
+const timerDurations = [25, 30, 55, 5];
+const headerMessages = [
     `今この瞬間に<br>集中してください。`,
     `やすらぎのときを少し、<br>過ごされますように。`,
 ];
-const className = [
+const containerClassNames = [
     "container-fluid p-3 visible",
     "container-fluid p-3 bg-success text-white text-center",
     "bi bi-fullscreen-exit",
     "bi bi-arrows-fullscreen",
 ];
-const btn = [
+const timerButtons = [
     document.getElementById("btn25"),
     document.getElementById("btn30"),
     document.getElementById("btn55"),
     document.getElementById("btn5"),
     document.getElementById("btn_RST"),
 ];
-const div = [
+const containerDivs = [
     document.getElementById("div1"),
     document.getElementById("div2"),
     document.getElementById("div3"),
 ];
-const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
+const headerElements = [
+    document.getElementById("hd1"),
+    document.getElementById("hd2")
+];
 
-// Event listener for buttons
-btn.forEach((button, index) => {
-    if (index < btn.length - 2) {
-        button.addEventListener("click", () => handleButtonClick(index), false);
-    } else if (index === btn.length - 2) {
-        button.addEventListener("click", handleSingleOffDutyClick, false);
+timerButtons.forEach((buttonElement, buttonIndex) => {
+    if (buttonIndex < timerButtons.length - 2) {
+        buttonElement.addEventListener("click", () => handleTimerButtonClick(buttonIndex), false);
+    } else if (buttonIndex === timerButtons.length - 2) {
+        buttonElement.addEventListener("click", handleSingleOffDutyClick, false);
     } else {
-        button.addEventListener("click", handleResetClick, false);
+        buttonElement.addEventListener("click", handleResetClick, false);
     }
 });
 
-async function handleButtonClick(index) {
-    const { CountDownTimer } = await import("./CountDownTimer.js");
-    CountDownTimer(due[index]);
-    await btnDisabler();
-    await domVisualizer();
-    const { ChangerAfterDue } = await import("./ChangerAfterDue.js");
-    ChangerAfterDue(due[index], btn[3], div[0], className[1]);
+async function handleTimerButtonClick(timerIndex) {
+    const { countDownTimer } = await import("./CountDownTimer.js");
+    countDownTimer(timerDurations[timerIndex]);
+    await disableTimerButtons();
+    await updateDomForTimer();
+    const { changeAfterTimerEnd } = await import("./ChangerAfterDue.js");
+    changeAfterTimerEnd(timerDurations[timerIndex], timerButtons[3], containerDivs[0], containerClassNames[1]);
 }
 
 async function handleSingleOffDutyClick() {
-    const { CountDownTimer } = await import("./CountDownTimer.js");
-    CountDownTimer(due[3]);
-    await btnDisabler();
-    hd[1].innerHTML = hdText[1];
-    const { ChangerAfterTimeoff } = await import("./ChangerAfterTimeoff.js");
-    ChangerAfterTimeoff(due[3]);
+    const { countDownTimer } = await import("./CountDownTimer.js");
+    countDownTimer(timerDurations[3]);
+    await disableTimerButtons();
+    headerElements[1].innerHTML = headerMessages[1];
+    const { changeAfterTimeOff } = await import("./ChangerAfterTimeoff.js");
+    changeAfterTimeOff(timerDurations[3]);
 }
 
 async function handleResetClick() {
     location.reload();
 }
 
-//async functions commonly used above for each btn for duration, respectively.
-async function btnDisabler() {
-    for (let i = 0; i < btn.length - 1; i++) btn[i].disabled = true;
+async function disableTimerButtons() {
+    for (let i = 0; i < timerButtons.length - 1; i++) timerButtons[i].disabled = true;
 }
 
-async function domVisualizer() {
-    for (let i = 1; i < div.length; i++) {
-        div[i].className = className[0];
+async function updateDomForTimer() {
+    for (let i = 1; i < containerDivs.length; i++) {
+        containerDivs[i].className = containerClassNames[0];
     }
-    hd[0].innerHTML = hdText[0];
+    headerElements[0].innerHTML = headerMessages[0];
 }
 
-// control fullscreen(enter/exit)
-const toggleBtn = document.getElementById("toggleBtn");
-toggleBtn.addEventListener("click", async () => {
+const fullscreenToggleButton = document.getElementById("toggleBtn");
+fullscreenToggleButton.addEventListener("click", async () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
-        toggleBtn.className = className[2];
+        fullscreenToggleButton.className = containerClassNames[2];
     } else {
         if (document.fullscreenElement) {
             document.exitFullscreen();
-            toggleBtn.className = className[3];
+            fullscreenToggleButton.className = containerClassNames[3];
         }
     }
 });
